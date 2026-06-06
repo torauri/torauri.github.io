@@ -1,21 +1,21 @@
 // Default patterns definition to fall back if CSV fetch fails (e.g. running locally via file://)
 const DEFAULT_PATTERNS = [
-    { id: 1, name: "右右", arrow1: "R", arrow2: "R", cell1_row: 2, cell1_col: 1, cell2_row: 2, cell2_col: 3 },
-    { id: 2, name: "左左", arrow1: "L", arrow2: "L", cell1_row: 2, cell1_col: 3, cell2_row: 2, cell2_col: 1 },
-    { id: 3, name: "上上", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 2, cell2_row: 1, cell2_col: 2 },
-    { id: 4, name: "下下", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 2, cell2_row: 3, cell2_col: 2 },
-    { id: 5, name: "右下", arrow1: "R", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3 },
-    { id: 6, name: "下右", arrow1: "D", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3 },
-    { id: 7, name: "左下", arrow1: "L", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1 },
-    { id: 8, name: "下左", arrow1: "D", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1 },
-    { id: 9, name: "左上", arrow1: "L", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1 },
-    { id: 10, name: "上左", arrow1: "U", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1 },
-    { id: 11, name: "右上", arrow1: "R", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3 },
-    { id: 12, name: "上右", arrow1: "U", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3 },
-    { id: 13, name: "右右2", arrow1: "R", arrow2: "R", cell1_row: 1, cell1_col: 1, cell2_row: 1, cell2_col: 3 },
-    { id: 14, name: "左左2", arrow1: "L", arrow2: "L", cell1_row: 3, cell1_col: 3, cell2_row: 3, cell2_col: 1 },
-    { id: 15, name: "上上2", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 1, cell2_row: 1, cell2_col: 1 },
-    { id: 16, name: "下下2", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 3, cell2_row: 3, cell2_col: 3 }
+    { id: 1, name: "右右", arrow1: "R", arrow2: "R", cell1_row: 2, cell1_col: 1, cell2_row: 2, cell2_col: 3, pic1: "que_R.png", sec1: 10, pic2: "que_R.png", sec2: 7 },
+    { id: 2, name: "左左", arrow1: "L", arrow2: "L", cell1_row: 2, cell1_col: 3, cell2_row: 2, cell2_col: 1, pic1: "que_L.png", sec1: 10, pic2: "que_L.png", sec2: 7 },
+    { id: 3, name: "上上", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 2, cell2_row: 1, cell2_col: 2, pic1: "que_U.png", sec1: 10, pic2: "que_U.png", sec2: 7 },
+    { id: 4, name: "下下", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 2, cell2_row: 3, cell2_col: 2, pic1: "que_D.png", sec1: 10, pic2: "que_D.png", sec2: 7 },
+    { id: 5, name: "右下", arrow1: "R", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3, pic1: "que_D.png", sec1: 10, pic2: "que_R.png", sec2: 7 },
+    { id: 6, name: "下右", arrow1: "D", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3, pic1: "que_D.png", sec1: 7, pic2: "que_R.png", sec2: 10 },
+    { id: 7, name: "左下", arrow1: "L", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1, pic1: "que_L.png", sec1: 7, pic2: "que_D.png", sec2: 10 },
+    { id: 8, name: "下左", arrow1: "D", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1, pic1: "que_L.png", sec1: 10, pic2: "que_D.png", sec2: 7 },
+    { id: 9, name: "左上", arrow1: "L", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1, pic1: "que_L.png", sec1: 7, pic2: "que_U.png", sec2: 10 },
+    { id: 10, name: "上左", arrow1: "U", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1, pic1: "que_L.png", sec1: 10, pic2: "que_U.png", sec2: 7 },
+    { id: 11, name: "右上", arrow1: "R", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3, pic1: "que_R.png", sec1: 7, pic2: "que_U.png", sec2: 10 },
+    { id: 12, name: "上右", arrow1: "U", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3, pic1: "que_R.png", sec1: 10, pic2: "que_U.png", sec2: 7 },
+    { id: 13, name: "右右2", arrow1: "R", arrow2: "R", cell1_row: 1, cell1_col: 1, cell2_row: 1, cell2_col: 3, pic1: "que_R.png", sec1: 10, pic2: "que_R.png", sec2: 7 },
+    { id: 14, name: "左左2", arrow1: "L", arrow2: "L", cell1_row: 3, cell1_col: 3, cell2_row: 3, cell2_col: 1, pic1: "que_L.png", sec1: 10, pic2: "que_L.png", sec2: 7 },
+    { id: 15, name: "上上2", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 1, cell2_row: 1, cell2_col: 1, pic1: "que_U.png", sec1: 10, pic2: "que_U.png", sec2: 7 },
+    { id: 16, name: "下下2", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 3, cell2_row: 3, cell2_col: 3, pic1: "que_D.png", sec1: 10, pic2: "que_D.png", sec2: 7 }
 ];
 
 // Arrow SVGs
@@ -178,8 +178,8 @@ function parseCSV(text) {
         const item = {};
         headers.forEach((header, index) => {
             const val = cols[index];
-            // Parse coordinate columns and ID as integers
-            if (header.includes('row') || header.includes('col') || header === 'id') {
+            // Parse coordinate columns, ID, and sec counts as integers
+            if (header.includes('row') || header.includes('col') || header.includes('sec') || header === 'id') {
                 item[header] = parseInt(val, 10);
             } else {
                 item[header] = val;
@@ -227,20 +227,46 @@ function loadNextPattern() {
     isInputLocked = false;
 }
 
-// Render arrow icons in UI
+// Render arrow images in UI
 function renderPattern() {
     if (!currentPattern) return;
     
     patternNameEl.textContent = `パターン: ${currentPattern.name}`;
     arrowsDisplayEl.innerHTML = "";
     
-    const arrowTypes = [currentPattern.arrow1, currentPattern.arrow2];
-    arrowTypes.forEach(dir => {
-        const box = document.createElement("div");
-        box.className = `arrow-box arrow-${dir}`;
-        box.innerHTML = ARROW_SVGS[dir] || "?";
-        arrowsDisplayEl.appendChild(box);
-    });
+    // Render 1st image & sec number
+    const box1 = document.createElement("div");
+    box1.className = "arrow-box-custom";
+    
+    const sec1El = document.createElement("span");
+    sec1El.className = "sec-number";
+    sec1El.textContent = currentPattern.sec1 !== undefined ? currentPattern.sec1 : "-";
+    
+    const img1 = document.createElement("img");
+    img1.className = "arrow-image";
+    img1.src = `assets/p1/${currentPattern.pic1 || 'que_R.png'}`;
+    img1.alt = currentPattern.arrow1 || "arrow1";
+    
+    box1.appendChild(sec1El);
+    box1.appendChild(img1);
+    arrowsDisplayEl.appendChild(box1);
+    
+    // Render 2nd image & sec number
+    const box2 = document.createElement("div");
+    box2.className = "arrow-box-custom";
+    
+    const sec2El = document.createElement("span");
+    sec2El.className = "sec-number";
+    sec2El.textContent = currentPattern.sec2 !== undefined ? currentPattern.sec2 : "-";
+    
+    const img2 = document.createElement("img");
+    img2.className = "arrow-image";
+    img2.src = `assets/p1/${currentPattern.pic2 || 'que_R.png'}`;
+    img2.alt = currentPattern.arrow2 || "arrow2";
+    
+    box2.appendChild(sec2El);
+    box2.appendChild(img2);
+    arrowsDisplayEl.appendChild(box2);
 }
 
 // Handle Tap on a grid cell
