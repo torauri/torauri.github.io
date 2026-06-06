@@ -138,7 +138,8 @@ function setupEventListeners() {
 // Load Patterns from CSV
 async function loadPatterns() {
     try {
-        const response = await fetch("patterns.csv");
+        // Add timestamp to prevent browser cache issues
+        const response = await fetch("patterns.csv?t=" + new Date().getTime());
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -299,47 +300,51 @@ function clearSelectionStyles() {
 function evaluateAnswer() {
     if (!currentPattern || selectedCells.length !== 2) return;
     
-    const ans1 = { row: currentPattern.cell1_row, col: currentPattern.cell1_col };
-    const ans2 = { row: currentPattern.cell2_row, col: currentPattern.cell2_col };
-    const user1 = selectedCells[0];
-    const user2 = selectedCells[1];
+    // User selections
+    const u1 = selectedCells[0];
+    const u2 = selectedCells[1];
     
-    // Cast everything to numbers for robust comparison
-    const u1Row = Number(user1.row);
-    const u1Col = Number(user1.col);
-    const u2Row = Number(user2.row);
-    const u2Col = Number(user2.col);
+    const u1Row = Number(u1.row);
+    const u1Col = Number(u1.col);
+    const u2Row = Number(u2.row);
+    const u2Col = Number(u2.col);
     
-    const a1Row = Number(ans1.row);
-    const a1Col = Number(ans1.col);
-    const a2Row = Number(ans2.row);
-    const a2Col = Number(ans2.col);
+    // Correct cell coordinates
+    const a1Row = Number(currentPattern.cell1_row);
+    const a1Col = Number(currentPattern.cell1_col);
+    const a2Row = Number(currentPattern.cell2_row);
+    const a2Col = Number(currentPattern.cell2_col);
     
-    let isCorrect = false;
-    
-    // Normalize directions to upper case and trim whitespace
+    // Directions
     const dir1 = String(currentPattern.arrow1).trim().toUpperCase();
     const dir2 = String(currentPattern.arrow2).trim().toUpperCase();
     
-    // Determine logic based on direction similarity
+    let isCorrect = false;
+    
+    // 1. 方向が一緒の時 (例: 上上、下下、右右、左左): 順番にかかわらず組み合わせが一緒なら正解
     if (dir1 === dir2) {
-        // If directions are the same (e.g. Right-Right), order does not matter
+        // パターンA: 1つ目の選択が正解1、2つ目の選択が正解2
         const matchNormal = (u1Row === a1Row && u1Col === a1Col && u2Row === a2Row && u2Col === a2Col);
+        
+        // パターンB (逆順): 1つ目の選択が正解2、2つ目の選択が正解1
         const matchReversed = (u1Row === a2Row && u1Col === a2Col && u2Row === a1Row && u2Col === a1Col);
+        
         isCorrect = (matchNormal || matchReversed);
         
-        console.log(`[Same Direction Validation] dir1: ${dir1}, dir2: ${dir2}`);
-        console.log(`User: (${u1Row},${u1Col}) & (${u2Row},${u2Col})`);
-        console.log(`Answers: (${a1Row},${a1Col}) & (${a2Row},${a2Col})`);
-        console.log(`matchNormal: ${matchNormal}, matchReversed: ${matchReversed} -> isCorrect: ${isCorrect}`);
-    } else {
-        // If directions are different, order must be correct
+        console.log(`[同方向判定 (順不同)] パターン: ${currentPattern.name} (${dir1} & ${dir2})`);
+        console.log(`ユーザー選択: ①(${u1Row}, ${u1Col}) ②(${u2Row}, ${u2Col})`);
+        console.log(`正解データ: A(${a1Row}, ${a1Col}) B(${a2Row}, ${a2Col})`);
+        console.log(`通常マッチ: ${matchNormal}, 逆順マッチ: ${matchReversed} -> 判定: ${isCorrect ? '正解' : '不正解'}`);
+    } 
+    // 2. 方向が違うとき (例: 右下、左下、右上、左上など): 順番を見て判定 (厳密に順序一致)
+    else {
+        // 順番通りに押しているかチェック
         isCorrect = (u1Row === a1Row && u1Col === a1Col && u2Row === a2Row && u2Col === a2Col);
         
-        console.log(`[Different Direction Validation] dir1: ${dir1}, dir2: ${dir2}`);
-        console.log(`User: (${u1Row},${u1Col}) -> (${u2Row},${u2Col})`);
-        console.log(`Answers: (${a1Row},${a1Col}) -> (${a2Row},${a2Col})`);
-        console.log(`isCorrect: ${isCorrect}`);
+        console.log(`[異方向判定 (順序一致)] パターン: ${currentPattern.name} (${dir1} -> ${dir2})`);
+        console.log(`ユーザー選択: ①(${u1Row}, ${u1Col}) -> ②(${u2Row}, ${u2Col})`);
+        console.log(`正解データ: A(${a1Row}, ${a1Col}) -> B(${a2Row}, ${a2Col})`);
+        console.log(`判定: ${isCorrect ? '正解' : '不正解'}`);
     }
     
     // Process outcome
