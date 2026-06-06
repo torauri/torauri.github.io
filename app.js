@@ -1,21 +1,21 @@
 // Default patterns definition to fall back if CSV fetch fails (e.g. running locally via file://)
 const DEFAULT_PATTERNS = [
-    { id: 1, name: "右右", arrow1: "R", arrow2: "R", cell1_row: 3, cell1_col: 2, cell2_row: 3, cell2_col: 4 },
-    { id: 2, name: "左左", arrow1: "L", arrow2: "L", cell1_row: 3, cell1_col: 4, cell2_row: 3, cell2_col: 2 },
-    { id: 3, name: "上上", arrow1: "U", arrow2: "U", cell1_row: 4, cell1_col: 3, cell2_row: 2, cell2_col: 3 },
-    { id: 4, name: "下下", arrow1: "D", arrow2: "D", cell1_row: 2, cell1_col: 3, cell2_row: 4, cell2_col: 3 },
-    { id: 5, name: "右下", arrow1: "R", arrow2: "D", cell1_row: 3, cell1_col: 3, cell2_row: 4, cell2_col: 4 },
-    { id: 6, name: "下右", arrow1: "D", arrow2: "R", cell1_row: 3, cell1_col: 3, cell2_row: 4, cell2_col: 4 },
-    { id: 7, name: "左下", arrow1: "L", arrow2: "D", cell1_row: 3, cell1_col: 3, cell2_row: 4, cell2_col: 2 },
-    { id: 8, name: "下左", arrow1: "D", arrow2: "L", cell1_row: 3, cell1_col: 3, cell2_row: 4, cell2_col: 2 },
-    { id: 9, name: "左上", arrow1: "L", arrow2: "U", cell1_row: 3, cell1_col: 3, cell2_row: 2, cell2_col: 2 },
-    { id: 10, name: "上左", arrow1: "U", arrow2: "L", cell1_row: 3, cell1_col: 3, cell2_row: 2, cell2_col: 2 },
-    { id: 11, name: "右上", arrow1: "R", arrow2: "U", cell1_row: 3, cell1_col: 3, cell2_row: 2, cell2_col: 4 },
-    { id: 12, name: "上右", arrow1: "U", arrow2: "R", cell1_row: 3, cell1_col: 3, cell2_row: 2, cell2_col: 4 },
-    { id: 13, name: "右右2", arrow1: "R", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 2, cell2_col: 4 },
-    { id: 14, name: "左左2", arrow1: "L", arrow2: "L", cell1_row: 4, cell1_col: 4, cell2_row: 4, cell2_col: 2 },
-    { id: 15, name: "上上2", arrow1: "U", arrow2: "U", cell1_row: 4, cell1_col: 2, cell2_row: 2, cell2_col: 2 },
-    { id: 16, name: "下下2", arrow1: "D", arrow2: "D", cell1_row: 2, cell1_col: 4, cell2_row: 4, cell2_col: 4 }
+    { id: 1, name: "右右", arrow1: "R", arrow2: "R", cell1_row: 2, cell1_col: 1, cell2_row: 2, cell2_col: 3 },
+    { id: 2, name: "左左", arrow1: "L", arrow2: "L", cell1_row: 2, cell1_col: 3, cell2_row: 2, cell2_col: 1 },
+    { id: 3, name: "上上", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 2, cell2_row: 1, cell2_col: 2 },
+    { id: 4, name: "下下", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 2, cell2_row: 3, cell2_col: 2 },
+    { id: 5, name: "右下", arrow1: "R", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3 },
+    { id: 6, name: "下右", arrow1: "D", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 3 },
+    { id: 7, name: "左下", arrow1: "L", arrow2: "D", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1 },
+    { id: 8, name: "下左", arrow1: "D", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 3, cell2_col: 1 },
+    { id: 9, name: "左上", arrow1: "L", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1 },
+    { id: 10, name: "上左", arrow1: "U", arrow2: "L", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 1 },
+    { id: 11, name: "右上", arrow1: "R", arrow2: "U", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3 },
+    { id: 12, name: "上右", arrow1: "U", arrow2: "R", cell1_row: 2, cell1_col: 2, cell2_row: 1, cell2_col: 3 },
+    { id: 13, name: "右右2", arrow1: "R", arrow2: "R", cell1_row: 1, cell1_col: 1, cell2_row: 1, cell2_col: 3 },
+    { id: 14, name: "左左2", arrow1: "L", arrow2: "L", cell1_row: 3, cell1_col: 3, cell2_row: 3, cell2_col: 1 },
+    { id: 15, name: "上上2", arrow1: "U", arrow2: "U", cell1_row: 3, cell1_col: 1, cell2_row: 1, cell2_col: 1 },
+    { id: 16, name: "下下2", arrow1: "D", arrow2: "D", cell1_row: 1, cell1_col: 3, cell2_row: 3, cell2_col: 3 }
 ];
 
 // Arrow SVGs
@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
     setupEventListeners();
 });
 
-// Build 5x5 Grid with Header Labels
+// Build 5x5 Grid with Header Labels (0-based)
 function buildGrid() {
     gameGridEl.innerHTML = "";
     
@@ -72,8 +72,8 @@ function buildGrid() {
     corner.className = "grid-label";
     gameGridEl.appendChild(corner);
     
-    // 2. Top labels (columns 1 to 5)
-    for (let c = 1; c <= 5; c++) {
+    // 2. Top labels (columns 0 to 4)
+    for (let c = 0; c < 5; c++) {
         const label = document.createElement("div");
         label.className = "grid-label";
         label.textContent = c;
@@ -81,7 +81,7 @@ function buildGrid() {
     }
     
     // 3. Grid Rows
-    for (let r = 1; r <= 5; r++) {
+    for (let r = 0; r < 5; r++) {
         // Left label (row indicator)
         const rowLabel = document.createElement("div");
         rowLabel.className = "grid-label";
@@ -89,7 +89,7 @@ function buildGrid() {
         gameGridEl.appendChild(rowLabel);
         
         // 5 cells for the row
-        for (let c = 1; c <= 5; c++) {
+        for (let c = 0; c < 5; c++) {
             const cell = document.createElement("div");
             cell.className = "grid-cell";
             cell.dataset.row = r;
