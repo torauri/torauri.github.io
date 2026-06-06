@@ -491,27 +491,34 @@ body::after {
     color: #6366f1;
 }
 
+/* Control Panel */
+.control-panel {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 /* Footer Control Buttons */
 .app-footer {
     width: 100%;
     margin-top: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    align-items: center;
 }
 
 .btn {
     border: none;
     border-radius: 10px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all var(--transition-fast);
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
 }
 
 .btn-secondary {
@@ -534,77 +541,25 @@ body::after {
     background: rgba(239, 68, 68, 0.25);
 }
 
+.btn-warning {
+    background: rgba(234, 179, 8, 0.12);
+    color: #fef08a;
+    border: 1px solid rgba(234, 179, 8, 0.25);
+}
+
+.btn-warning:hover {
+    background: rgba(234, 179, 8, 0.22);
+}
+
+.btn-warning.active {
+    background: rgba(234, 179, 8, 0.35) !important;
+    border-color: #eab308 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 12px rgba(234, 179, 8, 0.3) !important;
+}
+
 .btn:active {
     transform: scale(0.97);
-}
-
-/* Debug Switch Toggle styling */
-.debug-toggle-container {
-    grid-column: span 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 5px;
-}
-
-.debug-label {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 34px;
-    height: 20px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: .4s;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 2px;
-    bottom: 2px;
-    background-color: var(--text-secondary);
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: rgba(99, 102, 241, 0.3);
-    border-color: #6366f1;
-}
-
-input:checked + .slider:before {
-    transform: translateX(14px);
-    background-color: var(--text-primary);
-}
-
-.slider.round {
-    border-radius: 20px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
 }
 
 /* Toast styling */

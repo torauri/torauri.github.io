@@ -65,7 +65,16 @@
                 </div>
             </div>
 
-            <!-- Instructions -->
+            <!-- Control Buttons -->
+            <div class="control-panel">
+                <button class="btn btn-secondary" id="btn-skip">スキップ</button>
+                <button class="btn btn-danger" id="btn-reset">リセット</button>
+                <button class="btn btn-warning" id="btn-show-answer">正解表示</button>
+            </div>
+        </main>
+
+        <!-- Footer (Instructions) -->
+        <footer class="app-footer">
             <div class="instructions-card">
                 <h3>遊び方</h3>
                 <ul>
@@ -74,20 +83,6 @@
                     <li><strong>[右下]</strong>のように方向が異なる場合は、<strong>順番通り</strong>に押す必要があります。</li>
                     <li>選択したマスを<strong>もう一度タップするとキャンセル（選択解除）</strong>できます。</li>
                 </ul>
-            </div>
-        </main>
-
-        <!-- Footer Control Buttons -->
-        <footer class="app-footer">
-            <button class="btn btn-secondary" id="btn-skip">スキップ</button>
-            <button class="btn btn-danger" id="btn-reset">リセット</button>
-            
-            <div class="debug-toggle-container">
-                <label class="switch">
-                    <input type="checkbox" id="debug-mode">
-                    <span class="slider round"></span>
-                </label>
-                <span class="debug-label">デバッグ表示 (正解枠)</span>
             </div>
         </footer>
     </div>

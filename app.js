@@ -52,7 +52,8 @@ const messageDisplayEl = document.getElementById("message-display");
 const gameGridEl = document.getElementById("game-grid");
 const btnSkipEl = document.getElementById("btn-skip");
 const btnResetEl = document.getElementById("btn-reset");
-const debugModeEl = document.getElementById("debug-mode");
+const btnShowAnswerEl = document.getElementById("btn-show-answer");
+let showAnswerMode = false;
 const toastMessageEl = document.getElementById("toast-message");
 
 // Initialize Game
@@ -121,7 +122,15 @@ function setupEventListeners() {
         }
     });
 
-    debugModeEl.addEventListener("change", () => {
+    btnShowAnswerEl.addEventListener("click", () => {
+        showAnswerMode = !showAnswerMode;
+        if (showAnswerMode) {
+            btnShowAnswerEl.classList.add("active");
+            btnShowAnswerEl.textContent = "正解非表示";
+        } else {
+            btnShowAnswerEl.classList.remove("active");
+            btnShowAnswerEl.textContent = "正解表示";
+        }
         updateDebugDisplay();
     });
 }
@@ -385,8 +394,8 @@ function updateDebugDisplay() {
         cell.classList.remove("debug-correct-1", "debug-correct-2", "debug-correct-both");
     });
     
-    // If debug mode is checked, draw correct cells from currentPattern
-    if (debugModeEl.checked && currentPattern) {
+    // If showAnswerMode is active, draw correct cells from currentPattern
+    if (showAnswerMode && currentPattern) {
         const r1 = currentPattern.cell1_row;
         const c1 = currentPattern.cell1_col;
         const r2 = currentPattern.cell2_row;
