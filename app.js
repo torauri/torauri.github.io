@@ -304,17 +304,42 @@ function evaluateAnswer() {
     const user1 = selectedCells[0];
     const user2 = selectedCells[1];
     
+    // Cast everything to numbers for robust comparison
+    const u1Row = Number(user1.row);
+    const u1Col = Number(user1.col);
+    const u2Row = Number(user2.row);
+    const u2Col = Number(user2.col);
+    
+    const a1Row = Number(ans1.row);
+    const a1Col = Number(ans1.col);
+    const a2Row = Number(ans2.row);
+    const a2Col = Number(ans2.col);
+    
     let isCorrect = false;
     
+    // Normalize directions to upper case and trim whitespace
+    const dir1 = String(currentPattern.arrow1).trim().toUpperCase();
+    const dir2 = String(currentPattern.arrow2).trim().toUpperCase();
+    
     // Determine logic based on direction similarity
-    if (currentPattern.arrow1 === currentPattern.arrow2) {
+    if (dir1 === dir2) {
         // If directions are the same (e.g. Right-Right), order does not matter
-        const matchNormal = (user1.row === ans1.row && user1.col === ans1.col && user2.row === ans2.row && user2.col === ans2.col);
-        const matchReversed = (user1.row === ans2.row && user1.col === ans2.col && user2.row === ans1.row && user2.col === ans1.col);
+        const matchNormal = (u1Row === a1Row && u1Col === a1Col && u2Row === a2Row && u2Col === a2Col);
+        const matchReversed = (u1Row === a2Row && u1Col === a2Col && u2Row === a1Row && u2Col === a1Col);
         isCorrect = (matchNormal || matchReversed);
+        
+        console.log(`[Same Direction Validation] dir1: ${dir1}, dir2: ${dir2}`);
+        console.log(`User: (${u1Row},${u1Col}) & (${u2Row},${u2Col})`);
+        console.log(`Answers: (${a1Row},${a1Col}) & (${a2Row},${a2Col})`);
+        console.log(`matchNormal: ${matchNormal}, matchReversed: ${matchReversed} -> isCorrect: ${isCorrect}`);
     } else {
         // If directions are different, order must be correct
-        isCorrect = (user1.row === ans1.row && user1.col === ans1.col && user2.row === ans2.row && user2.col === ans2.col);
+        isCorrect = (u1Row === a1Row && u1Col === a1Col && u2Row === a2Row && u2Col === a2Col);
+        
+        console.log(`[Different Direction Validation] dir1: ${dir1}, dir2: ${dir2}`);
+        console.log(`User: (${u1Row},${u1Col}) -> (${u2Row},${u2Col})`);
+        console.log(`Answers: (${a1Row},${a1Col}) -> (${a2Row},${a2Col})`);
+        console.log(`isCorrect: ${isCorrect}`);
     }
     
     // Process outcome
